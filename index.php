@@ -1,8 +1,13 @@
 <?php
 
-echo '<pre>';
-var_dump($_POST);
-echo '</pre>';
+
+if($_SERVER['REQUEST_METHOD' === 'POST'])
+{
+    
+    $username = stripcslashes($_POST['username']);
+
+
+}
 
 ?>
 

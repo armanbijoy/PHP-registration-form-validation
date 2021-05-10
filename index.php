@@ -12,26 +12,26 @@
 </head>
 <body style="padding: 50px;">
 
-<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" novalidate>
+<form action="" method="post" novalidate>
     <div class="row">
         <div class="col">
             <div class="form-group">
                 <label>Username</label>
-                <input class="form-control <?php echo isset($errors['username']) ? 'is-invalid' : '' ?>"
-                       name="username" value="<?php echo $username ?>">
+                <input class="form-control "
+                       name="username" value="">
                 <small class="form-text text-muted">Min: 6 and max 16 characters</small>
                 <div class="invalid-feedback">
-                    <?php echo $errors['username'] ?? '' ?>
+                  
                 </div>
             </div>
         </div>
         <div class="col">
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" class="form-control <?php echo isset($errors['email']) ? 'is-invalid' : '' ?>"
-                       name="email" value="<?php echo $email ?>">
+                <input type="email" class="form-control "
+                       name="email" value="">
                 <div class="invalid-feedback">
-                    <?php echo $errors['email'] ?? '' ?>
+                    
                 </div>
             </div>
         </div>
@@ -40,10 +40,10 @@
         <div class="col">
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" class="form-control <?php echo isset($errors['password']) ? 'is-invalid' : '' ?>"
-                       name="password" value="<?php echo $password ?>">
+                <input type="password" class="form-control"
+                       name="password" value="">
                 <div class="invalid-feedback">
-                    <?php echo $errors['password'] ?? '' ?>
+             
                 </div>
             </div>
         </div>
@@ -51,10 +51,10 @@
             <div class="form-group">
                 <label>Repeat Password</label>
                 <input type="password"
-                       class="form-control <?php echo isset($errors['password_confirm']) ? 'is-invalid' : '' ?>"
-                       name="password_confirm" value="<?php echo $password_confirm ?>">
+                       class="form-control"
+                       name="password_confirm" value="">
                 <div class="invalid-feedback">
-                    <?php echo $errors['password_confirm'] ?? '' ?>
+                    
                 </div>
             </div>
         </div>
@@ -62,10 +62,10 @@
     <div class="form-group">
         <div class="form-group">
             <label>Your CV link</label>
-            <input type="text" class="form-control <?php echo isset($errors['cv_url']) ? 'is-invalid' : '' ?>"
-                   name="cv_url" placeholder="https://www.example.com/my-cv" value="<?php echo $cv_url ?>"/>
+            <input type="text" class="form-control"
+                   name="cv_url" placeholder="https://www.example.com/my-cv" value=""/>
             <div class="invalid-feedback">
-                <?php echo $errors['cv_url'] ?? '' ?>
+               
             </div>
         </div>
     </div>

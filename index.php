@@ -4,11 +4,25 @@
 if($_SERVER['REQUEST_METHOD' === 'POST'])
 {
     
-    $username = stripcslashes($_POST['username']);
+    $username = post_data('username');
+    $email = post_data('email');
+    $password = post_data('passord');
+    $password_confirm = post_data('password_confirm');
+    $cv_url = post_data('cv_url');
+
+    echo '<pre>';
+    var_dump($username, $email, $password, $password_confirm, $cv_url);
+    echo '</pre>';
 
 
 }
 
+function post_data($field)
+{
+    $_POST[$field] ??= '';
+
+     return htmlspecialchars(stripcslashes($_POST['field']));
+}
 ?>
 
 

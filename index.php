@@ -1,7 +1,7 @@
 <?php
 
 
-if($_SERVER['REQUEST_METHOD' === 'POST'])
+if($_SERVER['REQUEST_METHOD'] === 'POST')
 {
     
     $username = post_data('username');
@@ -21,7 +21,7 @@ function post_data($field)
 {
     $_POST[$field] ??= '';
 
-     return htmlspecialchars(stripcslashes($_POST['field']));
+   return htmlspecialchars(stripslashes($_POST[$field]));
 }
 ?>
 

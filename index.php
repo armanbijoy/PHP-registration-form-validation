@@ -1,3 +1,12 @@
+<?php
+
+echo '<pre>';
+var_dump($_POST);
+echo '</pre>';
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>

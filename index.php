@@ -1,75 +1,79 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body style="padding: 50px;">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <title>Hello, world!</title>
-  </head>
-  <body>
-
-
-
-
-  <div class="container register-form">
-            <div class="form">
-                <div class="note">
-                    <p>This is a simpleRegister Form made using Boostrap.</p>
-                </div>
-
-                <div class="form-content">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Name *" value=""/>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Email *" value=""/>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Password *" value=""/>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Confirm Password *" value=""/>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your CV Link *" value=""/>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="button" class="btnSubmit">Submit</button>
+<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" novalidate>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label>Username</label>
+                <input class="form-control <?php echo isset($errors['username']) ? 'is-invalid' : '' ?>"
+                       name="username" value="<?php echo $username ?>">
+                <small class="form-text text-muted">Min: 6 and max 16 characters</small>
+                <div class="invalid-feedback">
+                    <?php echo $errors['username'] ?? '' ?>
                 </div>
             </div>
         </div>
+        <div class="col">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control <?php echo isset($errors['email']) ? 'is-invalid' : '' ?>"
+                       name="email" value="<?php echo $email ?>">
+                <div class="invalid-feedback">
+                    <?php echo $errors['email'] ?? '' ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control <?php echo isset($errors['password']) ? 'is-invalid' : '' ?>"
+                       name="password" value="<?php echo $password ?>">
+                <div class="invalid-feedback">
+                    <?php echo $errors['password'] ?? '' ?>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label>Repeat Password</label>
+                <input type="password"
+                       class="form-control <?php echo isset($errors['password_confirm']) ? 'is-invalid' : '' ?>"
+                       name="password_confirm" value="<?php echo $password_confirm ?>">
+                <div class="invalid-feedback">
+                    <?php echo $errors['password_confirm'] ?? '' ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-group">
+            <label>Your CV link</label>
+            <input type="text" class="form-control <?php echo isset($errors['cv_url']) ? 'is-invalid' : '' ?>"
+                   name="cv_url" placeholder="https://www.example.com/my-cv" value="<?php echo $cv_url ?>"/>
+            <div class="invalid-feedback">
+                <?php echo $errors['cv_url'] ?? '' ?>
+            </div>
+        </div>
+    </div>
 
+    <div class="form-group">
+        <button class="btn btn-primary">Register</button>
+    </div>
+</form>
 
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

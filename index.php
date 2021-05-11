@@ -21,6 +21,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     if(!$email)
     {
         $errors['email'] = REQUIRED_FIELD_ERROR ;
+    } elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $errors['email']='Please Give Valid Email';
     }
     if(!$password)
     {
@@ -70,21 +72,21 @@ function post_data($field)
         <div class="col">
             <div class="form-group">
                 <label>Username</label>
-                <input class="form-control " <?php echo isset($errors['username']) ? 'is-invalid' : '' ?>
+                <input class="form-control <?php echo isset($errors['username']) ? 'is-invalid' : '' ?> " 
                        name="username" value="">
                 <small class="form-text text-muted">Min: 6 and max 16 characters</small>
                 <div class="invalid_feedback">
-                    <?php echo $errors['username'] ?>
+                    <?php echo $errors['username'] ?? ''; ?>
                 </div>
             </div>
         </div>
         <div class="col">
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" class="form-control "
+                <input type="email" class="form-control <?php echo isset($errors['email']) ? 'is-invalid' : '' ?>"
                        name="email" value="">
                 <div class="invalid-feedback">
-                    
+                <?php echo $errors['email'] ?? ''; ?>
                 </div>
             </div>
         </div>
@@ -93,10 +95,10 @@ function post_data($field)
         <div class="col">
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" class="form-control"
+                <input type="password" class="form-control <?php echo isset($errors['password']) ? 'is-invalid' : '' ?>"
                        name="password" value="">
                 <div class="invalid-feedback">
-             
+                <?php echo $errors['password'] ?? ''; ?>
                 </div>
             </div>
         </div>
@@ -104,10 +106,10 @@ function post_data($field)
             <div class="form-group">
                 <label>Repeat Password</label>
                 <input type="password"
-                       class="form-control"
+                       class="form-control <?php echo isset($errors['password_confirm']) ? 'is-invalid' : '' ?>"
                        name="password_confirm" value="">
                 <div class="invalid-feedback">
-                    
+                <?php echo $errors['password_confirm'] ?? ''; ?>
                 </div>
             </div>
         </div>
@@ -115,10 +117,10 @@ function post_data($field)
     <div class="form-group">
         <div class="form-group">
             <label>Your CV link</label>
-            <input type="text" class="form-control"
+            <input type="text" class="form-control <?php echo isset($errors['cv_url']) ? 'is-invalid' : '' ?>"
                    name="cv_url" placeholder="https://www.example.com/my-cv" value=""/>
             <div class="invalid-feedback">
-               
+            <?php echo $errors['cv_url'] ?? ''; ?>
             </div>
         </div>
     </div>

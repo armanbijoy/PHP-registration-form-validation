@@ -1,6 +1,6 @@
 <?php
-
-
+define('REQUIRED_FIELD_ERROR', 'This field required');
+$errors = [];
 if($_SERVER['REQUEST_METHOD'] === 'POST')
 {
     
@@ -13,6 +13,31 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     echo '<pre>';
     var_dump($username, $email, $password, $password_confirm, $cv_url);
     echo '</pre>';
+
+    if(!$username)
+    {
+        $errors['username'] = REQUIRED_FIELD_ERROR ;
+    }
+    if(!$email)
+    {
+        $errors['email'] = REQUIRED_FIELD_ERROR ;
+    }
+    if(!$password)
+    {
+        $errors['password'] = REQUIRED_FIELD_ERROR ;
+    }
+
+    if(!$password_confirm)
+    {
+        $errors['password_confirm'] = REQUIRED_FIELD_ERROR ;
+    }
+
+    if(!$cv_url)
+    {
+        $errors['cv_url'] = REQUIRED_FIELD_ERROR ;
+    }
+
+
 
 
 }
@@ -45,11 +70,11 @@ function post_data($field)
         <div class="col">
             <div class="form-group">
                 <label>Username</label>
-                <input class="form-control "
+                <input class="form-control " <?php echo isset($errors['username']) ? 'is-invalid' : '' ?>
                        name="username" value="">
                 <small class="form-text text-muted">Min: 6 and max 16 characters</small>
-                <div class="invalid-feedback">
-                  
+                <div class="invalid_feedback">
+                    <?php echo $errors['username'] ?>
                 </div>
             </div>
         </div>
